@@ -36,22 +36,25 @@ const copy = {
   },
 };
 
+// Use Unsplash Source (hotlink-friendly) for reliable image loading
+const U = (q) => `https://source.unsplash.com/1200x900/?${encodeURIComponent(q)}`;
+
 const categories = [
-  { key: 'soccer', labelEn: 'Soccer', labelFr: 'Soccer', img: 'https://images.unsplash.com/photo-1543322748-33df6d3db806?q=80&w=1200&auto=format&fit=crop' },
-  { key: 'hockey', labelEn: 'Hockey', labelFr: 'Hockey', img: 'https://images.unsplash.com/photo-1603297612661-7603c961de2b?q=80&w=1200&auto=format&fit=crop' },
-  { key: 'basketball', labelEn: 'Basketball', labelFr: 'Basketball', img: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200&auto=format&fit=crop' },
-  { key: 'football', labelEn: 'Football', labelFr: 'Football', img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop' },
-  { key: 'baseball', labelEn: 'Baseball', labelFr: 'Baseball', img: 'https://images.unsplash.com/photo-1546502203-c0a2c59317df?q=80&w=1200&auto=format&fit=crop' },
-  { key: 'f1', labelEn: 'Formula 1', labelFr: 'Formule 1', img: 'https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=1200&auto=format&fit=crop' },
+  { key: 'soccer', labelEn: 'Soccer', labelFr: 'Soccer', img: U('soccer jersey') },
+  { key: 'hockey', labelEn: 'Hockey', labelFr: 'Hockey', img: U('hockey jersey') },
+  { key: 'basketball', labelEn: 'Basketball', labelFr: 'Basketball', img: U('basketball jersey') },
+  { key: 'football', labelEn: 'Football', labelFr: 'Football', img: U('american football jersey') },
+  { key: 'baseball', labelEn: 'Baseball', labelFr: 'Baseball', img: U('baseball jersey') },
+  { key: 'f1', labelEn: 'Formula 1', labelFr: 'Formule 1', img: U('formula 1 racing suit livery') },
 ];
 
 const products = [
-  { id: 1, team: 'PSG 24/25', price: 139.99, img: 'https://images.unsplash.com/photo-1547347298-4074fc08b7b8?q=80&w=1200&auto=format&fit=crop' },
-  { id: 2, team: 'Maple Leafs Home', price: 169.99, img: 'https://images.unsplash.com/photo-1517260739337-6799d9d02b28?q=80&w=1200&auto=format&fit=crop' },
-  { id: 3, team: 'Raptors City', price: 149.99, img: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop' },
-  { id: 4, team: 'Alouettes', price: 129.99, img: 'https://images.unsplash.com/photo-1526672818407-335c136748cd?q=80&w=1200&auto=format&fit=crop' },
-  { id: 5, team: 'Blue Jays', price: 159.99, img: 'https://images.unsplash.com/photo-1622047223689-06b4815b16a6?q=80&w=1200&auto=format&fit=crop' },
-  { id: 6, team: 'Ferrari F1', price: 179.99, img: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=1200&auto=format&fit=crop' },
+  { id: 1, team: 'PSG 24/25', price: 139.99, img: U('soccer jersey paris saint-germain kit') },
+  { id: 2, team: 'Maple Leafs Home', price: 169.99, img: U('hockey jersey toronto maple leafs') },
+  { id: 3, team: 'Raptors City', price: 149.99, img: U('basketball jersey toronto raptors') },
+  { id: 4, team: 'Alouettes', price: 129.99, img: U('canadian football jersey montreal alouettes') },
+  { id: 5, team: 'Blue Jays', price: 159.99, img: U('baseball jersey toronto blue jays') },
+  { id: 6, team: 'Ferrari F1', price: 179.99, img: U('f1 jersey ferrari racing suit') },
 ];
 
 function CategoryCard({ title, img }) {
@@ -150,7 +153,7 @@ export default function CatalogShowcase({ lang = 'en' }) {
               </div>
             </div>
             <div className="aspect-[16/10] overflow-hidden rounded-2xl bg-white">
-              <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200&auto=format&fit=crop" alt="Team jerseys" className="h-full w-full object-cover" />
+              <img src={U('team jerseys sports locker room') } alt="Team jerseys" className="h-full w-full object-cover" />
             </div>
           </div>
         </div>
